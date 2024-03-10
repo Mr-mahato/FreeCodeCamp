@@ -1,12 +1,13 @@
 const mongoose = require('mongoose');
 
 const exerciseSchema = new mongoose.Schema({
-    username:String,
+    userId:String,
     description:String,
     duration:Number,
-    date:String,
+    date:Date,
 })
 
+// you only have to take username id is created by itself
 const userSchema = new mongoose.Schema({
     username:String
 })
@@ -17,7 +18,8 @@ const logSchema = new mongoose.Schema({
     log:[{
         description:String,
         duration:Number,
-        date:String
+        date:String,
+        _id:false
     }]
 })
 const Exercise = new mongoose.model('Exercise',exerciseSchema);
